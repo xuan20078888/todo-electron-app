@@ -1,0 +1,38 @@
+{
+  "name": "my-electron-app",
+  "version": "1.0.0",
+  "description": "待办清单桌面应用 - Electron + TypeScript",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build && electron .",
+    "dev": "tsc && electron .",
+    "package": "npm run build && electron-builder",
+    "package:win": "npm run build && electron-builder --win"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.1.8",
+    "typescript": "^5.7.0"
+  },
+  "build": {
+    "appId": "com.example.my-electron-app",
+    "productName": "待办清单",
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true
+    },
+    "directories": {
+      "output": "release"
+    }
+  },
+  "dependencies": {
+    "mysql2": "^3.22.4"
+  }
+}
